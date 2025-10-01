@@ -1,0 +1,107 @@
+{
+  "name": "@inkeep/agents-run-api",
+  "version": "0.11.3",
+  "description": "Agents Run API for Inkeep Agent Framework - handles chat, agent execution, and streaming",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./instrumentation": {
+      "import": "./dist/instrumentation.js",
+      "types": "./dist/instrumentation.d.ts"
+    }
+  },
+  "type": "module",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "scripts": {
+    "dev": "vite",
+    "dev:with-bypass": "PORT=3003 vite",
+    "dev:without-bypass": "PORT=3004 INKEEP_AGENTS_RUN_API_BYPASS_SECRET= vite",
+    "build": "tsup",
+    "start": "node dist/index.js",
+    "test": "./run-tests.sh",
+    "test:ci": "vitest --run --config vitest.config.ci.ts",
+    "test:watch": "vitest",
+    "test:coverage": "vitest --run --coverage",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "2.0.2",
+    "@ai-sdk/gateway": "^1.0.23",
+    "@ai-sdk/google": "^2.0.14",
+    "@ai-sdk/openai": "2.0.11",
+    "@ai-sdk/react": "2.0.11",
+    "@hono/node-server": "^1.14.3",
+    "@hono/otel": "^0.4.0",
+    "@hono/swagger-ui": "^0.5.1",
+    "@hono/zod-openapi": "^1.0.2",
+    "@inkeep/agents-core": "workspace:^",
+    "@modelcontextprotocol/sdk": "^1.17.2",
+    "@openrouter/ai-sdk-provider": "^1.2.0",
+    "@opentelemetry/api": "^1.9.0",
+    "@opentelemetry/auto-instrumentations-node": "^0.64.1",
+    "@opentelemetry/baggage-span-processor": "^0.4.0",
+    "@opentelemetry/context-async-hooks": "^2.1.0",
+    "@opentelemetry/core": "^2.1.0",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.205.0",
+    "@opentelemetry/resources": "^2.1.0",
+    "@opentelemetry/sdk-node": "^0.205.0",
+    "@opentelemetry/sdk-trace-base": "^2.1.0",
+    "@opentelemetry/sdk-trace-node": "^2.1.0",
+    "@opentelemetry/semantic-conventions": "^1.37.0",
+    "ai": "5.0.11",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "destr": "^2.0.5",
+    "dotenv": "^17.2.1",
+    "drizzle-orm": "^0.44.4",
+    "exit-hook": "^4.0.0",
+    "fetch-to-node": "^2.1.0",
+    "hono": "^4.9.7",
+    "jmespath": "^0.16.0",
+    "nanoid": "^5.1.5",
+    "pino": "^9.11.0",
+    "traverse": "^0.6.11",
+    "ts-pattern": "^5.7.1",
+    "zod": "^4.1.5"
+  },
+  "optionalDependencies": {
+    "keytar": "^7.9.0"
+  },
+  "devDependencies": {
+    "@hono/vite-dev-server": "^0.20.1",
+    "@opentelemetry/exporter-trace-otlp-proto": "^0.203.0",
+    "@opentelemetry/sdk-metrics": "^2.1.0",
+    "@types/ajv": "^1.0.4",
+    "@types/jmespath": "^0.15.2",
+    "@types/node": "^20.11.24",
+    "@types/traverse": "^0.6.37",
+    "@vitest/coverage-v8": "^2.0.0",
+    "nodemon": "^3.1.0",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3",
+    "vite": "^7.1.4",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.1.4"
+  },
+  "packageManager": "pnpm@10.11.0",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "files": [
+    "dist",
+    "templates",
+    "README.md",
+    "LICENSE.md",
+    "SUPPLEMENTAL_TERMS.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inkeep/agents.git",
+    "directory": "agents-run-api"
+  }
+}
