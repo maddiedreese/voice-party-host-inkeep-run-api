@@ -5,10 +5,11 @@
 [build.environment]
   NODE_VERSION = "22"
 
+[functions]
+  directory = "dist"
+  included_files = ["dist/index.js"]
+
 [[redirects]]
   from = "/*"
   to = "/index.js"
   status = 200
-
-[functions]
-  directory = "dist"
